@@ -40,8 +40,8 @@ book:
     - summary.qmd
     - references.qmd
   appendices:
-    - app/one.qmd
-    - app/two.qmd
+    - app/A-command-ref.qmd
+    - app/B-packages.qmd
 
 lang: es
 bibliography: references.bib
