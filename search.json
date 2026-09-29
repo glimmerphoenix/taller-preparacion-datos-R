@@ -1,0 +1,82 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Taller - Preparación y limpieza de datos con R",
+    "section": "",
+    "text": "Prefacio\nEste es un taller de iniciación a la preparación y limpieza de datos con el lenguaje de programación R. Nos centraremos especialmente en ejemplos y casos de uso de interés para los/as esudiantes en el programa de Doctorado en Ciencias Agrarias y Ambientales, aunque los conceptos y técnicas que se presentan son aplicables a cualquier área de conocimiento.\nSe incluyen contenidos prácticos que presentan ejemplos reales y comandos para limpiar y preparar nuestros datos de manera efectiva con R. Además, junto a la explicación de los conceptos clave para entender este proceso también se ofrecen recomendaciones sobre buenas prácticas y metodologías para sistematizar la detección y corrección de errores, seleccionar los formatos de representación y estructuras de datos más adecuadas, entender las diferencias entre los diferentes sistemas de almacenamiento de datos, así como las principales herramientas y técnicas de transformación y selección de características.\nLos apuntes para este taller práctico se han realizado con Quarto, una herramienta para creación de documentación científica y programación literaria compatible con R y otros lenguajes de programación científica.",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "index.html#requisitos-previos",
+    "href": "index.html#requisitos-previos",
+    "title": "Taller - Preparación y limpieza de datos con R",
+    "section": "Requisitos previos",
+    "text": "Requisitos previos\nPara poder realizar los ejemplos inlcuidos en este taller necesitas tener instalado R y una IDE de desarrollo para este lenguaje. Se recomienda instalar RStudio o MS Visual Code como entorno de programación.\n\nInstalación de R.\nInstalación de RStudio.\n\nTambién puedes probar Positron, la nueva IDE creada por Posit que permite ejecutar R y Python en un mismo entorno de desarrollo.\nAdicionalmente, es necesario instalar una serie de paquetes R antes de ejecutar los ejemplos de este taller, para que todas las dependencias estén disponibles en nuestro sistema. Consulta el Apéndice ?sec-pkg-requirements para comprobar el listado de paquetes R necesarios.",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introducción",
+    "section": "",
+    "text": "Objetivos generales de la asignatura.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "tasks/tasks.html",
+    "href": "tasks/tasks.html",
+    "title": "Tareas de preparación de datos",
+    "section": "",
+    "text": "Esta parte describe las principales tareas que se realizan en la preparación de datos, incluyendo su obtención, la elección de los formatos de representación, validación, transformación y provisionamiento de datos. Cada tarea se describe en detalle en los capítulos correspondientes, incluyendo ejemplos ilustrativos y referencias a fuentes de información relevantes.",
+    "crumbs": [
+      "Tareas de preparación de datos"
+    ]
+  },
+  {
+    "objectID": "storage/storage.html",
+    "href": "storage/storage.html",
+    "title": "Almacenamiento",
+    "section": "",
+    "text": "Esta parte aborda la problemática del almacenamiento de datos, incluyendo los diferentes tipos de almacenamiento, sus características y cómo elegir el soporte y el formato adecuados según las necesidades del proyecto. Se discutirán conceptos clave como bases de datos relacionales y no relacionales, sistemas de archivos distribuidos, almacenamiento en la nube y estrategias de replicación y respaldo, entre otros aspectos.",
+    "crumbs": [
+      "Almacenamiento"
+    ]
+  },
+  {
+    "objectID": "validation/validation.html",
+    "href": "validation/validation.html",
+    "title": "Validación",
+    "section": "",
+    "text": "En esta parte del curso se presentan los principales conceptos, elementos de diseño y técnicas de validación de datos, concebida como un proceso de aseguramiento de la calidad de los datos, que permite identificar errores y problemas en los datos, así como su corrección y mejora, siguiendo un enfoque metódico y sistemático. La validación de datos es un paso crítico en el ciclo de vida de los datos, garantizando que los datos sean precisos, completos y fiables para su uso en análisis, toma de decisiones y su reutilización en otros procesos y proyectos.",
+    "crumbs": [
+      "Validación"
+    ]
+  },
+  {
+    "objectID": "transformation/transformation.html",
+    "href": "transformation/transformation.html",
+    "title": "Transformación",
+    "section": "",
+    "text": "Esta parte describe las principales técnicas y procedimientos de transformación de datos, entendida como el proceso de convertir datos de un formato o estructura a otro, con el objetivo de mejorar su calidad, utilidad y compatibilidad para análisis posteriores.",
+    "crumbs": [
+      "Transformación"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "15  Conclusiones",
+    "section": "",
+    "text": "Conclusiones y punteros a material adicional.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Conclusiones</span>"
+    ]
+  }
+]
