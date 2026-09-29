@@ -1,0 +1,3 @@
+# Transformación
+
+Esta parte describe las principales técnicas y procedimientos de transformación de datos, entendida como el proceso de convertir datos de un formato o estructura a otro, con el objetivo de mejorar su calidad, utilidad y compatibilidad para análisis posteriores.

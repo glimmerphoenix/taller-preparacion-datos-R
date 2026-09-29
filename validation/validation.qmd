@@ -1,0 +1,3 @@
+# Validación
+
+En esta parte del curso se presentan los principales conceptos, elementos de diseño y técnicas de validación de datos, concebida como un proceso de aseguramiento de la calidad de los datos, que permite identificar errores y problemas en los datos, así como su corrección y mejora, siguiendo un enfoque metódico y sistemático. La validación de datos es un paso crítico en el ciclo de vida de los datos, garantizando que los datos sean precisos, completos y fiables para su uso en análisis, toma de decisiones y su reutilización en otros procesos y proyectos.
