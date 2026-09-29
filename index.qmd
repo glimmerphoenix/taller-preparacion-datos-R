@@ -1,0 +1,34 @@
+# Prefacio {.unnumbered}
+
+Este es un taller de iniciación a la preparación y limpieza de datos con el lenguaje de programación R.
+Nos centraremos especialmente en ejemplos y casos de uso de interés para los/as esudiantes en el programa
+de Doctorado en Ciencias Agrarias y Ambientales, aunque los conceptos y técnicas que se presentan son 
+aplicables a cualquier área de conocimiento.
+
+Se incluyen **contenidos prácticos** que presentan ejemplos reales y comandos para
+limpiar y preparar nuestros datos de manera efectiva con R. Además,
+junto a la explicación de los conceptos clave para entender este proceso también
+se ofrecen recomendaciones sobre buenas prácticas y metodologías para sistematizar la detección y corrección
+de errores, seleccionar los formatos de representación y estructuras de datos más adecuadas, entender
+las diferencias entre los diferentes sistemas de almacenamiento de datos, así como las principales herramientas
+y técnicas de transformación y selección de características.
+
+Los apuntes para este taller práctico se han realizado con 
+[Quarto](https://quarto.org), una herramienta para creación de
+documentación científica y programación literaria compatible con
+R y otros lenguajes de programación científica.
+
+## Requisitos previos
+
+Para poder realizar los ejemplos inlcuidos en este taller necesitas tener instalado
+R y una IDE de desarrollo para este lenguaje. Se recomienda instalar RStudio o MS
+Visual Code como entorno de programación.
+
+- [Instalación de R](https://cran.r-project.org/).
+- [Instalación de RStudio](https://posit.co/download/rstudio-desktop/).
+
+También puedes probar [Positron](https://positron.posit.co/), la nueva IDE creada por Posit que permite ejecutar R y Python en un mismo entorno de desarrollo.
+
+Adicionalmente, es necesario instalar una serie de paquetes R antes de ejecutar los
+ejemplos de este taller, para que todas las dependencias estén disponibles en nuestro sistema.
+Consulta el Apéndice [@sec-pkg-requirements] para comprobar el listado de paquetes R necesarios.

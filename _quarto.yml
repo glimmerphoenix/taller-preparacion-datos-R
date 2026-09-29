@@ -1,0 +1,55 @@
+project:
+  type: book
+  output-dir: docs
+  preview:
+    port: 9010
+    browser: true
+
+book:
+  title: "Taller - Preparación y limpieza de datos con R"
+  subtitle: "CETINIA, URJC"
+  author:
+    - "Felipe Ortega"
+    - "María Jesús Algar"
+  license: "CC BY-SA 4.0"
+  date: "2026/09/28"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: tasks/tasks.qmd
+      chapters:
+        - tasks/representation.qmd
+        - tasks/validation.qmd
+        - tasks/transformation.qmd
+    - part: storage/storage.qmd
+      chapters:
+        - storage/formats.qmd
+        - storage/data-structures.qmd
+        - storage/databases.qmd
+        - storage/data-lakes.qmd
+    - part: validation/validation.qmd
+      chapters:
+        - validation/finding-errors.qmd
+        - validation/frameworks.qmd
+        - validation/imputation.qmd
+    - part: transformation/transformation.qmd
+      chapters:
+        - transformation/EDA.qmd
+        - transformation/feature-engineering.qmd
+        - transformation/feature-selection.qmd
+    - summary.qmd
+    - references.qmd
+  appendices:
+    - app/one.qmd
+    - app/two.qmd
+
+lang: es
+bibliography: references.bib
+csl: ieee-with-url.csl
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
