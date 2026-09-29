@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Formatos de representación de datos – Taller - Preparación y limpieza de datos con R</title>
+<title>Apéndice B — Paquetes R y atribuciones – Taller - Preparación y limpieza de datos con R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../storage/data-structures.html" rel="next">
-<link href="../storage/storage.html" rel="prev">
+<link href="../app/A-command-ref.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -89,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../storage/storage.html">Almacenamiento</a></li><li class="breadcrumb-item"><a href="../storage/formats.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Formatos de representación de datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../app/A-command-ref.html">Apéndices</a></li><li class="breadcrumb-item"><a href="../app/B-packages.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Paquetes R y atribuciones</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -166,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../storage/formats.html" class="sidebar-item-text sidebar-link active">
+  <a href="../storage/formats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Formatos de representación de datos</span></span></a>
   </div>
 </li>
@@ -277,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../app/B-packages.html" class="sidebar-item-text sidebar-link">
+  <a href="../app/B-packages.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Paquetes R y atribuciones</span></span></a>
   </div>
 </li>
@@ -288,15 +287,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-pkg-requirements" id="toc-sec-pkg-requirements" class="nav-link active" data-scroll-target="#sec-pkg-requirements"><span class="header-section-number">B.1</span> Paquetes R</a></li>
+  <li><a href="#atribución-de-imágenes-e-iconos" id="toc-atribución-de-imágenes-e-iconos" class="nav-link" data-scroll-target="#atribución-de-imágenes-e-iconos"><span class="header-section-number">B.2</span> Atribución de imágenes e iconos</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../storage/storage.html">Almacenamiento</a></li><li class="breadcrumb-item"><a href="../storage/formats.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Formatos de representación de datos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../app/A-command-ref.html">Apéndices</a></li><li class="breadcrumb-item"><a href="../app/B-packages.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Paquetes R y atribuciones</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Formatos de representación de datos</span></h1>
+<h1 class="title">Apéndice B — Paquetes R y atribuciones</h1>
 </div>
 
 
@@ -313,8 +319,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="sec-pkg-requirements" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="sec-pkg-requirements"><span class="header-section-number">B.1</span> Paquetes R</h2>
+<p>Para ejecutar los ejemplos incluidos en este taller, se necesita tener instalado R y una IDE de desarrollo para este lenguaje, como por ejemplo RStudio o Microsoft VS Code.</p>
+<p>Además, es necesario instalar los paquete descritos en la <a href="#tbl-R-packages" class="quarto-xref">Tabla&nbsp;<span>B.1</span></a>.</p>
+<div id="tbl-R-packages" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-R-packages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;B.1: Listado de paquetes R utilizados en los ejemplos de este taller.
+</figcaption>
+<div aria-describedby="tbl-R-packages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Paquete</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>ggplot2</code></td>
+<td style="text-align: left;">Paquete principal de visualización de datos en el Tidyverse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>tidyverse</code></td>
+<td style="text-align: left;">Metapaquete que instala las herramientas principales del Tidyverse</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>agridat</code></td>
+<td style="text-align: left;">Conjunto de datos sobre experimentos deagricultura, incluyendo cultivos de campo, cultivos arbóreos o estudios con animales, entre otros</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Hmisc</code></td>
+<td style="text-align: left;">Funciones de utilidad desarrolladas por Frank E. Harrell</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>ggthemes</code></td>
+<td style="text-align: left;">Temas adicionales para personalizar gráficos con <code>ggplot2</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>sf</code></td>
+<td style="text-align: left;">Soporte para manipulación y representación de objetos codificados con el estándar <em>simple features</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>terra</code></td>
+<td style="text-align: left;">Soporte para manipulación y representación de objetos de tipo <em>raster</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>mapview</code></td>
+<td style="text-align: left;">Creación de gráficos espaciales intereactivos en R</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>mapSpain</code></td>
+<td style="text-align: left;">Facilita la creación de mapas a diferentes niveles administrativos de España</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>climaemet</code></td>
+<td style="text-align: left;">Acceso a datos de la AEMET desde R</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>airqualityES</code></td>
+<td style="text-align: left;">Datos sobre calidad del aire en España (periodio de 18 años)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="atribución-de-imágenes-e-iconos" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="atribución-de-imágenes-e-iconos"><span class="header-section-number">B.2</span> Atribución de imágenes e iconos</h2>
+<p>Todas las imágenes utilizadas de fuentes externas reciben atribución junto a su aparición en los contenidos de este taller.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -719,14 +801,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../storage/storage.html" class="pagination-link" aria-label="Almacenamiento">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Almacenamiento</span>
+      <a href="../app/A-command-ref.html" class="pagination-link" aria-label="Referencia de comandos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Referencia de comandos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../storage/data-structures.html" class="pagination-link" aria-label="Estructuras de datos">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estructuras de datos</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
