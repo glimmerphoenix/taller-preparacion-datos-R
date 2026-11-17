@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -288,8 +323,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#formatos-de-representación-de-datos" id="toc-formatos-de-representación-de-datos" class="nav-link active" data-scroll-target="#formatos-de-representación-de-datos"><span class="header-section-number">2.1</span> Formatos de representación de datos</a>
+  <ul class="collapse">
+  <li><a href="#csv-comma-separated-values" id="toc-csv-comma-separated-values" class="nav-link" data-scroll-target="#csv-comma-separated-values"><span class="header-section-number">2.1.1</span> CSV (Comma-Separated Values)</a></li>
+  <li><a href="#json-javascript-object-notation" id="toc-json-javascript-object-notation" class="nav-link" data-scroll-target="#json-javascript-object-notation"><span class="header-section-number">2.1.2</span> JSON (JavaScript Object Notation)</a></li>
+  <li><a href="#xml-extensible-markup-language" id="toc-xml-extensible-markup-language" class="nav-link" data-scroll-target="#xml-extensible-markup-language"><span class="header-section-number">2.1.3</span> XML (eXtensible Markup Language)</a></li>
+  <li><a href="#yaml-yaml-aint-markup-language" id="toc-yaml-yaml-aint-markup-language" class="nav-link" data-scroll-target="#yaml-yaml-aint-markup-language"><span class="header-section-number">2.1.4</span> YAML (YAML Ain’t Markup Language)</a></li>
+  <li><a href="#parquet" id="toc-parquet" class="nav-link" data-scroll-target="#parquet"><span class="header-section-number">2.1.5</span> Parquet</a></li>
+  <li><a href="#avro" id="toc-avro" class="nav-link" data-scroll-target="#avro"><span class="header-section-number">2.1.6</span> Avro</a></li>
+  <li><a href="#cuándo-utilizar-parquet-o-avro" id="toc-cuándo-utilizar-parquet-o-avro" class="nav-link" data-scroll-target="#cuándo-utilizar-parquet-o-avro"><span class="header-section-number">2.1.7</span> ¿Cuándo utilizar Parquet o Avro?</a></li>
+  <li><a href="#apache-arrow" id="toc-apache-arrow" class="nav-link" data-scroll-target="#apache-arrow"><span class="header-section-number">2.1.8</span> Apache Arrow</a></li>
+  </ul></li>
+  <li><a href="#almacenamiento-de-datos" id="toc-almacenamiento-de-datos" class="nav-link" data-scroll-target="#almacenamiento-de-datos"><span class="header-section-number">2.2</span> Almacenamiento de datos</a>
+  <ul class="collapse">
+  <li><a href="#bases-de-datos-relacionales" id="toc-bases-de-datos-relacionales" class="nav-link" data-scroll-target="#bases-de-datos-relacionales"><span class="header-section-number">2.2.1</span> Bases de datos relacionales</a></li>
+  <li><a href="#bases-de-datos-nosql" id="toc-bases-de-datos-nosql" class="nav-link" data-scroll-target="#bases-de-datos-nosql"><span class="header-section-number">2.2.2</span> Bases de datos NoSQL</a></li>
+  <li><a href="#sistemas-de-almacenamiento-en-la-nube" id="toc-sistemas-de-almacenamiento-en-la-nube" class="nav-link" data-scroll-target="#sistemas-de-almacenamiento-en-la-nube"><span class="header-section-number">2.2.3</span> Sistemas de almacenamiento en la nube</a></li>
+  <li><a href="#bases-de-datos-analíticas" id="toc-bases-de-datos-analíticas" class="nav-link" data-scroll-target="#bases-de-datos-analíticas"><span class="header-section-number">2.2.4</span> Bases de datos analíticas</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -313,8 +371,447 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="formatos-de-representación-de-datos" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="formatos-de-representación-de-datos"><span class="header-section-number">2.1</span> Formatos de representación de datos</h2>
+<section id="csv-comma-separated-values" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="csv-comma-separated-values"><span class="header-section-number">2.1.1</span> CSV (Comma-Separated Values)</h3>
+<p>El formato CSV es ampliamente utilizado para representar datos tabulares. Cada línea del archivo representa un registro (un caso, un individuo, un objeto, etc.), y los valores dentro de cada registro están separados por comas. De este modo, todos los valores situados en la misma columna comparten el mismo tipo de dato, que debe ser conocido de antemano. El <em>esquema</em> del archivo CSV define la estructura de los datos, es decir, cuántas columnas tiene el archivo y cuál es el nombre y tipo de cada una de ellas.</p>
+<p>Este formato es fácil de leer y escribir, y es compatible con muchas herramientas de análisis de datos. Sin embargo, no soporta tipos de datos complejos ni estructuras jerárquicas, lo que puede limitar su uso en ciertos escenarios. El <a href="#lst-csv-example" class="quarto-xref">Listado&nbsp;<span>2.2</span></a> muestra un ejemplo del contenido de un archivo <code>plantas.csv</code>, que almacena información sobre plantas:</p>
+<div id="lst-csv-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-csv-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.1: Contenido de un archivo <code>plantas.csv</code> que contiene información sobre plantas, incluyendo su nombre común, nombre científico, hábitat y altura media.
+</figcaption>
+<div aria-describedby="lst-csv-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<pre class="csv"><code>
+nombre,científico,habitat,altura
+Rosa gallica,Rosa gallica,Pradera,1.5
+Tulipa gesneriana,Tulipa gesneriana,Bosque,0.3</code></pre>
+</div>
+</figure>
+</div>
+<p>CSV se utiliza habitualmente en aplicaciones como <em>bases de datos</em> y <em>hojas de cálculo</em>, que ofrecen soporte nativo para este formato por su facilidad para efectuar operaciones de importación y exportación. Además, ha sido tradicionalmente utilizado en el intercambio de datos entre diferentes sistemas y plataformas, debido a su simplicidad y compatibilidad con múltiples lenguajes de programación. El hecho de que sea un formato de texto plano permite que se pueda <strong>inspeccionar su contenido</strong> (<em>human-readable</em>) usando un editor de texto, posibilitando la depuración y limpieza de los datos. Sin embargo, esta estrategia es inviable para archivos de gran tamaño, ya que la lectura y escritura de archivos de texto plano puede ser lenta y consumir muchos recursos. En estos casos, se recomienda utilizar formatos binarios optimizados, que veremos más adelante en este capítulo, para el almacenamiento y procesamiento de datos.</p>
+<p>Conviene tener en cuenta algunos aspectos sobre el trabajo con archivos CSV:</p>
+<ul>
+<li><p><strong>Separadores</strong>: Aunque el formato CSV utiliza comas como separadores por defecto, algunos archivos pueden utilizar otros caracteres, como punto y coma (<code>;</code>) o tabulaciones (<code>\t</code>). En este último caso, el formato se suele denominar TSV (<em>Tab-Separated Values</em>). Resulta esencial conocer el separador utilizado en el archivo para poder leerlo correctamente.</p></li>
+<li><p><strong>Encabezados</strong>: Los archivos CSV pueden incluir una fila de encabezado que contiene los nombres de las columnas. Esta fila suele ser la primera del archivo, pero no siempre es así. Es importante comprobar si el archivo contiene un encabezado y, en tal caso, asegurarnos de que se interprete correctamente esta información.</p></li>
+<li><p><strong>Valores faltantes</strong>: Los archivos CSV pueden contener valores faltantes o nulos, que se representan mediante celdas vacías (espacios en blanco entre dos separadores). Debemos prever cómo vamos a manejar estos valores al leer y procesar los datos, ya que pueden afectar a los resultados del análisis.</p></li>
+<li><p><strong>Codificación de caracteres</strong>: Los archivos CSV pueden utilizar diferentes codificaciones de caracteres, como <code>UTF-8</code>, <code>ISO-8859-1</code> o <code>Windows-1252</code>. Es fundamental definir la codificación del archivo para poder leerlo correctamente y evitar problemas de interpretación de caracteres especiales.</p></li>
+<li><p><strong>Comillas</strong>: Los valores de texto en los archivos CSV pueden estar entre comillas (simples o dobles) para permitir la inclusión de caracteres especiales, como comas o saltos de línea, dentro de los valores. Cuando cargamos el archivo, debemos comprobar que las comillas se procesen correctamente para evitar errores en la interpretación de los datos.</p></li>
+<li><p><strong>Dialectos</strong>: Existen diferentes <strong>dialectos de CSV</strong>, que definen una combinación de aspectos de formato como el separador, el uso de comillas o la presencia de encabezados. Es importante saber el dialecto en el que se expresa el archivo para leerlo correctamente y evitar problemas de interpretación de los datos.</p></li>
+</ul>
+<section id="soporte-para-csv-en-r" class="level4" data-number="2.1.1.1">
+<h4 data-number="2.1.1.1" class="anchored" data-anchor-id="soporte-para-csv-en-r"><span class="header-section-number">2.1.1.1</span> Soporte para CSV en R</h4>
+<p><strong>Paquete <code>readr</code></strong></p>
+<p>En R, el paquete <code>readr</code> (<a href="https://readr.tidyverse.org/" class="uri">https://readr.tidyverse.org/</a>) ofrece funciones para leer y escribir archivos tabulares de datos en diversos formatos, incluyendo CSV y TSV, de manera eficiente. La función <code>read_csv()</code> permite importar datos desde un archivo CSV a un data frame, mientras que la función <code>write_csv()</code> permite exportar un data frame a un archivo CSV. Existe otra función llamada <code>read_csv2()</code> que carga archivos CSV con punto y coma como separador y que usan la coma como separador de decimales en datos numéricos, así como <code>write_csv2()</code> para escribir archivos CSV con el mismo formato.</p>
+<p>A continuación, el <a href="#lst-csv-example" class="quarto-xref">Listado&nbsp;<span>2.2</span></a> muestra un ejemplo de cómo utilizar la función <code>read_csv()</code> para cargar un archivo CSV en R:</p>
+<div id="lst-csv-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-csv-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.2: Ejemplo de carga de un archivo CSV llamado <code>plantas.csv</code> utilizando la función <code>read_csv()</code> del paquete <code>readr</code> en R.
+</figcaption>
+<div aria-describedby="lst-csv-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo CSV</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"plantas.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p><strong>Paquete <code>vroom</code></strong></p>
+<p>El paquete <code>vroom</code> (<a href="https://vroom.r-lib.org/" class="uri">https://vroom.r-lib.org/</a>) es otra opción en R para trabajar con archivos CSV de manera eficiente, sobre todo si se trata de archivos grandes. La función <code>vroom()</code> lee varios formatos de archivos de texto delimitado rápidamente y con un bajo consumo de memoria. A continuación, el <a href="#lst-vroom-example" class="quarto-xref">Listado&nbsp;<span>2.3</span></a> muestra un ejemplo de cómo utilizar esta función:</p>
+<div id="lst-vroom-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-vroom-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.3: Ejemplo de carga de un archivo CSV llamado <code>plantas.csv</code> utilizando la función <code>vroom()</code> del paquete <code>vroom</code> en R.
+</figcaption>
+<div aria-describedby="lst-vroom-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vroom)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo CSV grande</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">vroom</span>(<span class="st">"plantas.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p>Veamos una comparativa de rendimiento (tiempo de ejecución, <em>throughput</em> y tasa de aceleración) entre varios paquetes de R para leer archivos CSV, tomando como referencia el paquete <code>read.delim</code>. Respecto a las <a href="https://vroom.tidyverse.org/#features">funcionalidades de utilidad</a> incluidas, soporta casi todas las características de <code>readr</code>, además de otras como la lectura de archivos comprimidos, de archivos con múltiples tipos de codificación y de archivos con múltiples delimitadores.</p>
+<p>La tabla <a href="#tbl-csv-performance" class="quarto-xref">Tabla&nbsp;<span>2.1</span></a> muestra los tiempos de lectura promedio en segundos para cada paquete:</p>
+<div id="tbl-csv-performance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-csv-performance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.1: Comparativa de rendimiento entre diferentes paquetes de R para leer un archivo CSV de gran tamaño. Todos los valores la tasa de aceleración están expresados en relación con el rendimiento base del paquete <code>read.delim</code>.
+</figcaption>
+<div aria-describedby="tbl-csv-performance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 26%">
+<col style="width: 21%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Paquete</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: right;">Tiempo de lectura (s)</th>
+<th style="text-align: right;">Throughput (MB/s)</th>
+<th style="text-align: right;">Tasa de aceleración</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">read.delim</td>
+<td style="text-align: left;">4.1.0</td>
+<td style="text-align: right;">72,31</td>
+<td style="text-align: right;">22,71</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">readr</td>
+<td style="text-align: left;">1.4.0</td>
+<td style="text-align: right;">37,30</td>
+<td style="text-align: right;">44,02</td>
+<td style="text-align: right;">1,94</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">vroom</td>
+<td style="text-align: left;">1.5.1</td>
+<td style="text-align: right;"><strong>1,36</strong></td>
+<td style="text-align: right;"><strong>1230</strong></td>
+<td style="text-align: right;"><strong>53,30</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">data.table</td>
+<td style="text-align: left;">1.14.0</td>
+<td style="text-align: right;">5,83</td>
+<td style="text-align: right;">281,65</td>
+<td style="text-align: right;">12,40</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Paquete <code>data.table</code></strong></p>
+<p>El paquete <code>data.table</code> (<a href="https://rdatatable.gitlab.io/data.table/" class="uri">https://rdatatable.gitlab.io/data.table/</a>) también permite leer archivos CSV de manera eficiente, especialmente si son de gran tamaño. La función <code>fread()</code> lee archivos CSV de forma rápida, eficiente y con un bajo consumo de memoria, aunque su velocidad no es comparable a la del paquete <code>vroom</code>. A continuación, el <a href="#lst-datatable-example" class="quarto-xref">Listado&nbsp;<span>2.4</span></a> muestra un ejemplo de cómo utilizar esta función:</p>
+<div id="lst-datatable-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-datatable-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.4: Ejemplo de carga de un archivo CSV llamado <code>plantas.csv</code> utilizando la función <code>fread()</code> del paquete <code>data.table</code> en R.
+</figcaption>
+<div aria-describedby="lst-datatable-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo CSV grande</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"plantas.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="json-javascript-object-notation" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="json-javascript-object-notation"><span class="header-section-number">2.1.2</span> JSON (JavaScript Object Notation)</h3>
+<p>El formato JSON (<a href="https://www.json.org/json-es.html" class="uri">https://www.json.org/json-es.html</a>) es un estándar abierto que utiliza una estructura de objetos y arrays para representar datos. Es un formato de texto plano (<em>human-readable</em>) que sea eficiente tanto para humanos (a la hora de editarlo) como para máquinas (a la hora de procesarlo). Su principal domino de uso reside en aplicaciones web y APIs, siendo compatible con muchos lenguajes de programación.</p>
+<p>Está constituido por dos estructuras principales: objetos y arrays.</p>
+<ul>
+<li><p>Los <strong>objetos</strong> se representan mediante pares clave-valor. Pueden ser de distinta índole, incluyendo registros, estructuras, diccionarios, tablas hash, listas de claves (<em>sets</em>) o arrays asociativos. Cada clave es única dentro del objeto y se utiliza para acceder a su valor correspondiente. Los valores pueden ser de diferentes tipos, como cadenas de texto, números, booleanos, nulos, objetos anidados o arrays.</p></li>
+<li><p>Los <strong>arrays</strong> son listas ordenadas de valores, que en la mayoría de lenguajes corresponden a arrays, vectores, listas o secuencias.</p></li>
+</ul>
+<p>El <a href="#lst-json-example" class="quarto-xref">Listado&nbsp;<span>2.5</span></a> muestra un ejemplo de un archivo JSON que contiene información sobre plantas, similar al archivo CSV anterior:</p>
+<div id="lst-json-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-json-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.5: Contenido de un archivo <code>plantas.json</code> que contiene información sobre plantas, incluyendo su nombre común, nombre científico, hábitat y altura media.
+</figcaption>
+<div aria-describedby="lst-json-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"nombre"</span><span class="fu">:</span> <span class="st">"Rosa gallica"</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"científico"</span><span class="fu">:</span> <span class="st">"Rosa gallica"</span><span class="fu">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"habitat"</span><span class="fu">:</span> <span class="st">"Pradera"</span><span class="fu">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"altura"</span><span class="fu">:</span> <span class="fl">1.5</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"nombre"</span><span class="fu">:</span> <span class="st">"Tulipa gesneriana"</span><span class="fu">,</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"científico"</span><span class="fu">:</span> <span class="st">"Tulipa gesneriana"</span><span class="fu">,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"habitat"</span><span class="fu">:</span> <span class="st">"Bosque"</span><span class="fu">,</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"altura"</span><span class="fu">:</span> <span class="fl">0.3</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p>A pesar de que se trata de un formato muy común de intercambio de datos en aplicaciones y sistemas web, APIs y otros servicios de publicación de datos, JSON puede ser menos compacto a la hora de representar la misma información que otros formatos binarios optimizados, como Parquet o Avro. Además, no soporta tipos de datos complejos ni estructuras jerárquicas, lo que puede limitar su uso en ciertos escenarios.</p>
+<section id="soporte-para-json-en-r" class="level4" data-number="2.1.2.1">
+<h4 data-number="2.1.2.1" class="anchored" data-anchor-id="soporte-para-json-en-r"><span class="header-section-number">2.1.2.1</span> Soporte para JSON en R</h4>
+<p><strong>Paquete <code>jsonlite</code></strong></p>
+<p>La opción más popular en R para trabajar con archivos JSON es el paquete <code>jsonlite</code> (<a href="https://cran.r-project.org/web/packages/jsonlite/index.html" class="uri">https://cran.r-project.org/web/packages/jsonlite/index.html</a>). Incluye funciones para convertir datos entre R y JSON de manera eficiente y directa. La función <code>fromJSON()</code> permite importar datos desde un archivo JSON a un <em>data frame</em>, mientras que la función <code>toJSON()</code> permite exportar un <em>data frame</em> a un archivo JSON. A continuación, el <a href="#lst-jsonlite-example" class="quarto-xref">Listado&nbsp;<span>2.6</span></a> muestra un ejemplo de cómo utilizar estas funciones:</p>
+<div id="lst-jsonlite-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-jsonlite-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.6: Ejemplo de carga de un archivo JSON llamado <code>plantas.json</code> utilizando la función <code>fromJSON()</code> del paquete <code>jsonlite</code>, y de escritura de un archivo JSON llamado <code>plantas_salida.json</code> utilizando la función <code>toJSON()</code>.
+</figcaption>
+<div aria-describedby="lst-jsonlite-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo JSON</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"plantas.json"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Escribir un archivo JSON</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">toJSON</span>(datos, <span class="st">"plantas_salida.json"</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p><strong>Paquete <code>rjson</code></strong></p>
+<p>El paquete <code>rjson</code> (<a href="https://cran.r-project.org/web/packages/rjson/index.html" class="uri">https://cran.r-project.org/web/packages/rjson/index.html</a>) es otra opción en R para procesar datos JSON. Ofrece funciones de conversión de datos entre R y JSON, aunque su rendimiento puede ser inferior al de <code>jsonlite</code>. La función <code>fromJSON()</code> permite importar datos desde un archivo JSON a un <em>data frame</em>, mientras que la función <code>toJSON()</code> permite exportar un <em>data frame</em> a un archivo JSON. El <a href="#lst-rjson-example" class="quarto-xref">Listado&nbsp;<span>2.7</span></a> muestra un ejemplo de cómo utilizar estas funciones:</p>
+<div id="lst-rjson-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-rjson-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.7: Ejemplo de carga de un archivo JSON llamado <code>plantas.json</code> mediante la función <code>fromJSON()</code> y de escritura de un archivo JSON llamado <code>plantas_salida.json</code> con <code>toJSON()</code>, ambas del paquete <code>rjson</code>.
+</figcaption>
+<div aria-describedby="lst-rjson-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo JSON</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="at">file =</span> <span class="st">"plantas.json"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Escribir un archivo JSON</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(<span class="fu">toJSON</span>(datos), <span class="at">file =</span> <span class="st">"plantas_salida.json"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p><strong>Paquete <code>tidyjson</code></strong></p>
+<p><code>tidyjson</code> (<a href="https://cran.r-project.org/web/packages/tidyjson/index.html" class="uri">https://cran.r-project.org/web/packages/tidyjson/index.html</a>) es un paquete de R para tratamiento de datos JSON más intuitivo y eficiente, completamente integrado en la gramática de <em>tidyverse</em>. Proporciona funciones para convertir datos JSON en <em>data frames</em> y viceversa, así como para manipular y transformar datos JSON. La función <code>spread_all()</code> expande un objeto JSON en un <em>data frame</em>, mientras que la <code>gather_array()</code> permite convertir un <em>data frame</em> en un objeto JSON. El <a href="#lst-tidyjson-example" class="quarto-xref">Listado&nbsp;<span>2.8</span></a> muestra un ejemplo de cómo utilizar estas funciones:</p>
+<div id="lst-tidyjson-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-tidyjson-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.8: Ejemplo de lectura de un archivo JSON <code>plantas.json</code> con la función <code>fromJSON()</code> y de escritura de un archivo JSON <code>plantas_salida.json</code> con <code>toJSON()</code>, ambas del paquete <code>tidyjson</code>.
+</figcaption>
+<div aria-describedby="lst-tidyjson-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyjson)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo JSON</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"plantas.json"</span>) <span class="sc">%&gt;%</span> <span class="fu">spread_all</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Escribir un archivo JSON</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">toJSON</span>(datos) <span class="sc">%&gt;%</span> <span class="fu">write</span>(<span class="st">"plantas_salida.json"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p><strong>Paquete <code>arrow</code></strong></p>
+<p>Por último, el paquete <code>arrow</code> (<a href="https://arrow.apache.org/docs/r/" class="uri">https://arrow.apache.org/docs/r/</a>) también tiene la opción de trabajar con datos JSON, incluyendo funciones de conversión así como de lectura/escritura de archivos en este formato. La función <code>read_json_arrow()</code> importa datos desde un archivo NDJSON (Newline-Delimited JSON, en los que cada línea es un objeto JSON independiente) a un <em>data frame</em>. No es compatible con el formato JSON estándar, donde el listado de objetos se organiza en un array global. No se pueden escribir datos desde Arrow a un archivo JSON.</p>
+<p>El <a href="#lst-arrow-example" class="quarto-xref">Listado&nbsp;<span>2.11</span></a> muestra un ejemplo de cómo utilizar estas funciones:</p>
+<div id="lst-arrow-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-arrow-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.9: Uso de la función incluida en el paquete <code>arrow</code> <code>read_json_arrow()</code> para cargar un archivo <code>plantas.json</code>. El archivo debe estar en formato NDJSON, donde cada línea es un objeto JSON independiente.
+</figcaption>
+<div aria-describedby="lst-arrow-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo JSON</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_json_arrow</span>(<span class="st">"plantas.json"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="xml-extensible-markup-language" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="xml-extensible-markup-language"><span class="header-section-number">2.1.3</span> XML (eXtensible Markup Language)</h3>
+<p>El formato XML es un lenguaje de marcado que representa datos estructurados y jerárquicos. Es ampliamente utilizado en aplicaciones empresariales y sistemas de intercambio de datos debido a su flexibilidad y capacidad para definir esquemas personalizados. Fue especialmente popular en los años 90 y principios de los 2000. Sin embargo, XML puede resulta ser el menos compacto y eficiente de los formatos de representación de datos en texto plano, puesto que requiere más espacio de almacenamiento y tiene un procesamiento más complejo en comparación con otros formatos como JSON o CSV.</p>
+<p>En R, el paquete <code>xml2</code> (<a href="https://cran.r-project.org/web/packages/xml2/index.html" class="uri">https://cran.r-project.org/web/packages/xml2/index.html</a>) proporciona funciones para leer y escribir archivos XML de manera eficiente. La función <code>read_xml()</code> permite importar datos desde un archivo XML a un objeto de tipo <em>xml_document</em>, mientras que la función <code>write_xml()</code> permite exportar un objeto <em>xml_document</em> a un archivo XML.</p>
+</section>
+<section id="yaml-yaml-aint-markup-language" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="yaml-yaml-aint-markup-language"><span class="header-section-number">2.1.4</span> YAML (YAML Ain’t Markup Language)</h3>
+<p>YAML es un lenguaje de serialización o aplanado de datos en texto plano, para representarlos de manera amigable para los humanos. Su empleo se ha popularizado sobre todo en archivos de configuración y escenarios donde la claridad y la simplicidad son importantes. YAML puede representar estructuras jerárquicas y es compatible con muchos lenguajes de programación, aunque puede ser más propenso a errores de sintaxis debido a su especial sensibilidad a la indentación.</p>
+<p>El listado <a href="#lst-yaml-example" class="quarto-xref">Listado&nbsp;<span>2.10</span></a> muestra un ejemplo de un archivo YAML que contiene información sobre plantas, similar a los archivos CSV y JSON anteriores:</p>
+<div id="lst-yaml-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-yaml-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.10: Contenido de un archivo <code>plantas.yaml</code> con datos sobre plantas, incluyendo su nombre común, nombre científico, hábitat y altura media.
+</figcaption>
+<div aria-describedby="lst-yaml-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">nombre</span><span class="kw">:</span><span class="at"> Rosa gallica</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">científico</span><span class="kw">:</span><span class="at"> Rosa gallica</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">habitat</span><span class="kw">:</span><span class="at"> Pradera</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">altura</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.5</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">nombre</span><span class="kw">:</span><span class="at"> Tulipa gesneriana</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">científico</span><span class="kw">:</span><span class="at"> Tulipa gesneriana</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">habitat</span><span class="kw">:</span><span class="at"> Bosque</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">altura</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.3</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+</section>
+<section id="parquet" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="parquet"><span class="header-section-number">2.1.5</span> Parquet</h3>
+<p>Parquet es un formato de almacenamiento de datos en columnas, optimizado para el procesamiento de grandes volúmenes de información. Esta <strong>orientación columnar</strong> permite un acceso más eficiente a los datos, ya que solo se leen las columnas necesarias para una consulta específica, lo que reduce el tiempo de lectura y mejora el rendimiento en comparación con los formatos basados en filas.</p>
+<p>Lo encontramos con frecuencia en entornos de <em>big data</em> y sistemas distribuidos de procesamiento de datos debido a su eficiencia en términos de almacenamiento y rendimiento. Parquet permite comprimir y codificar los datos, reduciendo el espacio de almacenamiento y mejorando la velocidad de lectura/escritura. Además, es compatible con muchos sistemas actuales de procesamiento de datos, como Apache Spark. La siguiente tabla <a href="#tbl-formats-comparison" class="quarto-xref">Tabla&nbsp;<span>2.2</span></a> muestra una comparativa de características entre los formatos Parquet, JSON/NDJSON y CSV:</p>
+<div id="tbl-formats-comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-formats-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.2: Comparativa de características entre los formatos de representación de datos Parquet, JSON/NDJSON y CSV.
+</figcaption>
+<div aria-describedby="tbl-formats-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">Parquet</th>
+<th style="text-align: left;">JSON / NDJSON</th>
+<th style="text-align: left;">CSV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Organización</strong></td>
+<td style="text-align: left;">Por columnas (binario)</td>
+<td style="text-align: left;">Por registros/filas (texto)</td>
+<td style="text-align: left;">Por filas (texto plano)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Tamaño en disco</strong></td>
+<td style="text-align: left;">Muy pequeño (alta compresión)</td>
+<td style="text-align: left;">Elevado/muy elevado (repetición de claves)</td>
+<td style="text-align: left;">Elevado</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Velocidad analítica</strong></td>
+<td style="text-align: left;">Extremadamente rápida</td>
+<td style="text-align: left;">Lenta (requiere parsear texto)</td>
+<td style="text-align: left;">Moderada / lenta</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Tipos de datos</strong></td>
+<td style="text-align: left;">Estrictos e integrados</td>
+<td style="text-align: left;">Básicos (inferidos en lectura)</td>
+<td style="text-align: left;">Ninguno (sólo texto, esquema externo)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Legibilidad humana</strong></td>
+<td style="text-align: left;">No (binario, requiere herramientas)</td>
+<td style="text-align: left;">Sí (texto plano)</td>
+<td style="text-align: left;">Sí (texto plano)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="soporte-para-parquet-en-r" class="level4" data-number="2.1.5.1">
+<h4 data-number="2.1.5.1" class="anchored" data-anchor-id="soporte-para-parquet-en-r"><span class="header-section-number">2.1.5.1</span> Soporte para Parquet en R</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un data frame de ejemplo</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ventas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">id_venta =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100000</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">fecha =</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">"2024-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2026-12-31"</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by =</span> <span class="st">"day"</span>),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">100000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">tienda =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Madrid"</span>, <span class="st">"Barcelona"</span>, <span class="st">"Valencia"</span>, <span class="st">"Sevilla"</span>),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">100000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">categoria =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Electrónica"</span>, <span class="st">"Hogar"</span>, <span class="st">"Ropa"</span>, <span class="st">"Alimentación"</span>),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>                     <span class="dv">100000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">importe =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100000</span>, <span class="at">min =</span> <span class="dv">5</span>, <span class="at">max =</span> <span class="dv">500</span>), <span class="dv">2</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar en formato Parquet (compresión "zstd" o "snappy")</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">write_parquet</span>(ventas, <span class="st">"ventas.parquet"</span>, <span class="at">compression =</span> <span class="st">"zstd"</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprobar el tamaño del archivo generado en MB</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="fu">file.size</span>(<span class="st">"ventas.parquet"</span>) <span class="sc">/</span> (<span class="dv">1024</span><span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9315872</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="avro" class="level3" data-number="2.1.6">
+<h3 data-number="2.1.6" class="anchored" data-anchor-id="avro"><span class="header-section-number">2.1.6</span> Avro</h3>
+<p>Avro es un sistema de serialización de datos que permite representarlos de manera compacta y eficiente. También se utiliza en entornos de <em>big data</em> y sistemas de mensajería, gracias a que puede manejar esquemas dinámicos y es compatible con múltiples lenguajes de programación. Avro puede comprimir los datos y es adecuado para situaciones que requieren un rendimiento alto en operaciones de lectura y escritura.</p>
+<p>Su principal diferencia respecto a Parquet es que Avro está orientado a filas, mientras que Parquet está orientado a columnas. Esto significa que Avro es más eficiente para operaciones de escritura y lectura de registros completos o intercambio de datos, mientras que Parquet es más eficiente para consultas analíticas que requieren acceder a un subconjunto de columnas (por ejemplo, cuando seleccionamos un subconjunto de <em>features</em>). El hecho de que deba combinar diferentes tipos de datos en un mismo registro hace que Avro sea menos eficiente en términos de compresión y rendimiento que Parquet, especialmente cuando se trata de transferencias de grandes grandes volúmenes.</p>
+<section id="soporte-para-avro-en-r" class="level4" data-number="2.1.6.1">
+<h4 data-number="2.1.6.1" class="anchored" data-anchor-id="soporte-para-avro-en-r"><span class="header-section-number">2.1.6.1</span> Soporte para Avro en R</h4>
+<p>El paquete <code>sparklyr</code> ofrece soporte para Avro desde su versión 1.3 (<a href="https://posit.co/blog/sparklyr-1-3#avro" class="uri">https://posit.co/blog/sparklyr-1-3#avro</a>), permitiendo leer y escribir archivos Avro en R. La función <code>spark_read_avro()</code> permite importar datos desde un archivo Avro a un <em>data frame</em> de Spark, mientras que la función <code>spark_write_avro()</code> permite exportar un <em>data frame</em> de Spark a un archivo Avro. Puedes consultar el post en el blog de Posit del enlace anterior para ver un ejemplo de cómo utilizar estas funciones.</p>
+</section>
+</section>
+<section id="cuándo-utilizar-parquet-o-avro" class="level3" data-number="2.1.7">
+<h3 data-number="2.1.7" class="anchored" data-anchor-id="cuándo-utilizar-parquet-o-avro"><span class="header-section-number">2.1.7</span> ¿Cuándo utilizar Parquet o Avro?</h3>
+<p>En general, podemos considerar las siguientes recomendaciones cuando tengamos que elegir entre uno de los dos formatos en nuestro proyecto:</p>
+<ul>
+<li><p><strong>Parquet</strong>: Es más adecuado para análisis de datos y consultas analíticas, en las que seleccionamos un subconjunto de columnas. Algunos ejemplos de plataformas de procesamiento ideales para esta estrategia son Apache Spark y Databricks, Snowflake, Google BigQuery o Athena, entre otros. Su orientación columnar permite un acceso más eficiente a los datos y una mejor compresión, lo que lo hace ideal para entornos de <em>big data</em> y sistemas distribuidos de procesamiento de datos.</p></li>
+<li><p><strong>Avro</strong>: Es más adecuado para captura de eventos uno por uno a gran velocidad, por ejemplo, cuando estamos leyendo de sistemas de ingesta de datos de altas prestaciones como Apache Kafka. También es adecuado para el intercambio de datos entre sistemas (como diálogo entre microservicios). Otro escenario donde Avro puede ser más adecuado es cuando se requiere un esquema dinámico, ya que permite manejar cambios en la estructura de los datos sin necesidad de modificar el código de la aplicación.</p></li>
+</ul>
+</section>
+<section id="apache-arrow" class="level3" data-number="2.1.8">
+<h3 data-number="2.1.8" class="anchored" data-anchor-id="apache-arrow"><span class="header-section-number">2.1.8</span> Apache Arrow</h3>
+<p>Apache Arrow puede almacenar <strong>datos en memoria</strong> optimizando su procesamiento por columnas. Sus principales ventajas son un alto rendimiento y escalabilidad, especialmente trabajando con datos en memoria. También soporta la interoperabilidad entre diferentes lenguajes de programación y sistemas, lo que facilita el intercambio de datos. Además, es compatible con técnicas de compresión y codificación de datos, incrementando la velocidad de lectura y escritura.</p>
+<section id="relación-con-arrow-ipc-feather" class="level4" data-number="2.1.8.1">
+<h4 data-number="2.1.8.1" class="anchored" data-anchor-id="relación-con-arrow-ipc-feather"><span class="header-section-number">2.1.8.1</span> Relación con Arrow IPC (Feather)</h4>
+<p>Feather (<a href="https://arrow.apache.org/docs/1.0/python/feather.html" class="uri">https://arrow.apache.org/docs/1.0/python/feather.html</a>) es la <strong>representación en disco</strong> del formato Apache Arrow para datos en memoria. Mientras que Arrow define cómo se organizan los datos columnares en la memoria RAM, Feather (concretamente, desde su versión 2) es el formato de archivo binario utilizado para almacenar esa misma estructura en disco (almacenamiento persistente) sin necesidad de transformar los datos, que se denomina técnicamente <strong>Arrow IPC</strong> (<em>Inter-Process Communication</em>). Poco después de lanzarse Apache Arrow en 2016, Wes McKinney (autor de la biblioteca <em>pandas</em> de Python) y Hadley Wickham (autor del ecosistema Tidyverse de R) crearon Feather como una prueba de concepto para demonstrar cómo se podían intercambiar <em>data frames</em> entre Python y R sin necesidad de usar formatos intermedios, como CSV.</p>
+</section>
+<section id="soporte-para-apache-arrow-en-r" class="level4" data-number="2.1.8.2">
+<h4 data-number="2.1.8.2" class="anchored" data-anchor-id="soporte-para-apache-arrow-en-r"><span class="header-section-number">2.1.8.2</span> Soporte para Apache Arrow en R</h4>
+<p>Como no podía ser de otra manera, el paquete <code>arrow</code> (<a href="https://arrow.apache.org/docs/r/" class="uri">https://arrow.apache.org/docs/r/</a>) nos brinda funciones para trabajar con datos en memoria y en disco utilizando el formato Apache Arrow. La función <code>read_arrow()</code> permite importar datos desde un archivo Feather (en disco) a un <em>data frame</em> (en memoria), mientras que la función <code>write_arrow()</code> permite exportar un <em>data frame</em> a un archivo Feather. A continuación, el <a href="#lst-arrow-example" class="quarto-xref">Listado&nbsp;<span>2.11</span></a> muestra un ejemplo de cómo utilizar estas funciones:</p>
+<div id="lst-arrow-example" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-arrow-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listado&nbsp;2.11: Ejemplo de escritura del <em>data frame</em> <code>mtcars</code> a un archivo Feather (Arrow IPC) y de lectura de ese archivo, mediante las funciones de escritura y lectura de Arrow IPC en el paquete R <code>arrow</code>.
+</figcaption>
+<div aria-describedby="lst-arrow-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Escribir un archivo Feather (Arrow IPC)</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>tf <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".arrow"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">on.exit</span>(<span class="fu">unlink</span>(tf))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write_ipc_file</span>(mtcars, tf)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer un archivo Feather (Arrow IPC)</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_ipc_file</span>(tf)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 32 11</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Can select columns</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_ipc_file</span>(tf, <span class="at">col_select =</span> <span class="fu">starts_with</span>(<span class="st">"d"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p>El paquete <code>arrow</code> incluye una amplia gama de funciones de lectura y escritura tanto de datasets como de archivos en diferentes formatos, incluyendo Parquet, Avro, Feather (Arrow IPC) y CSV. Además, permite trabajar con datos en memoria utilizando la estructura de datos Arrow, lo que facilita el procesamiento eficiente de grandes volúmenes de información. Dos ejemplos son la función <code>open_dataset()</code>, que permite abrir un conjunto de datos que ha sido particionado en varios archivos, y la función análoga para escritura <code>write_dataset()</code>, que permite volcar a disco un conjunto de datos (<a href="https://arrow.apache.org/docs/r/reference/index.html#read-datasets" class="uri">https://arrow.apache.org/docs/r/reference/index.html#read-datasets</a>).</p>
+<p><strong>Workshop</strong> (useR 2022): <a href="https://arrow-user2022.netlify.app/" class="uri">https://arrow-user2022.netlify.app/</a>.</p>
+</section>
+</section>
+</section>
+<section id="almacenamiento-de-datos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="almacenamiento-de-datos"><span class="header-section-number">2.2</span> Almacenamiento de datos</h2>
+<section id="bases-de-datos-relacionales" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="bases-de-datos-relacionales"><span class="header-section-number">2.2.1</span> Bases de datos relacionales</h3>
+<p>Las bases de datos relacionales (RDBMS) son sistemas de gestión de bases de datos que utilizan un modelo basado en tablas para almacenar y organizar datos. Cada tabla contiene filas (registros) y columnas (campos), y las relaciones entre las tablas se establecen mediante claves primarias y foráneas. Estos sistemas aparecen con mucha frecuencia en aplicaciones empresariales y sistemas de gestión de información en producción, ya que pueden manejar grandes volúmenes de datos estructurados y a su compatibilidad con el lenguaje SQL (<em>Structured Query Language</em>).</p>
+</section>
+<section id="bases-de-datos-nosql" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="bases-de-datos-nosql"><span class="header-section-number">2.2.2</span> Bases de datos NoSQL</h3>
+<p>Las bases de datos NoSQL son sistemas de gestión de bases de datos que no utilizan un modelo relacional tradicional. En su lugar, emplean diferentes modelos de datos para organizar la información, como documentos, pares clave-valor, grafos o columnas. Son muy útiles para procesar datos no estructurados o semi-estructurados, lo que las hace ideales para aplicaciones web, análisis de <em>big data</em> o sistemas distribuidos. Algunos ejemplos populares de bases de datos NoSQL incluyen MongoDB (documentos), Redis (clave-valor), Neo4j (grafos) y Cassandra (columnas).</p>
+<section id="redis" class="level4" data-number="2.2.2.1">
+<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="redis"><span class="header-section-number">2.2.2.1</span> Redis</h4>
+<p>Redis es una base de datos NoSQL de tipo clave-valor que almacena datos en memoria, ofreciendo un acceso rápido y eficiente. Destaca en entornos que requieren alta velocidad y baja latencia, como sistemas de caché, colas de mensajes y análisis de datos en tiempo real. Redis implementa características avanzadas como persistencia de datos, replicación, alta disponibilidad y soporte para estructuras de datos complejas, convirtiéndolo en la opción ideal para gran variedad de casos de uso.</p>
+</section>
+</section>
+<section id="sistemas-de-almacenamiento-en-la-nube" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="sistemas-de-almacenamiento-en-la-nube"><span class="header-section-number">2.2.3</span> Sistemas de almacenamiento en la nube</h3>
+<p>Los sistemas de almacenamiento en la nube permiten almacenar y acceder a datos a través de Internet, utilizando servicios proporcionados por proveedores de nube como Amazon Web Services (AWS), Microsoft Azure y Google Cloud Platform (GCP). Estos sistemas ofrecen escalabilidad, alta disponibilidad y redundancia, lo que permite a las organizaciones manejar grandes conjuntos de datos sin preocuparse por la infraestructura subyacente. Además, los sistemas de almacenamiento en la nube suelen ofrecer características avanzadas como cifrado, control de acceso y gestión de versiones, lo que mejora la seguridad y la integridad de los datos almacenados.</p>
+</section>
+<section id="bases-de-datos-analíticas" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="bases-de-datos-analíticas"><span class="header-section-number">2.2.4</span> Bases de datos analíticas</h3>
+<p>Las bases de datos analíticas están diseñadas específicamente para tratar grandes volúmenes de datos y generar informes (interfaces interactivas o documentales). Estas bases de datos optimizan el almacenamiento y las operaciones de consulta mediante técnicas como la indexación, la agregación y la partición de datos. Se han vuelto soluciones muy demandadas en entornos de inteligencia de negocio (BI) y análisis de <em>big data</em>, y son compatibles con herramientas de visualización y análisis de datos como Tableau o Power BI. Algunos ejemplos incluyen Amazon Redshift, Google BigQuery y Snowflake.</p>
+<section id="snowflake" class="level4" data-number="2.2.4.1">
+<h4 data-number="2.2.4.1" class="anchored" data-anchor-id="snowflake"><span class="header-section-number">2.2.4.1</span> Snowflake</h4>
+<p>Snowflake es una plataforma de almacenamiento y análisis de datos en la nube que ofrece un enfoque basado en la separación del almacenamiento y el procesamiento, permitiendo a los usuarios escalar recursos según sus necesidades sin afectar el rendimiento. Además, Snowflake es compatible con múltiples formatos de datos, incluyendo CSV, JSON, Parquet y Avro, y ofrece características avanzadas como seguridad, control de acceso y gestión de versiones. Destaca por su facilidad de uso (muy intuitiva), su rendimiento y su capacidad para integrarse con otras herramientas y servicios en la nube.</p>
+</section>
+<section id="duckdb" class="level4" data-number="2.2.4.2">
+<h4 data-number="2.2.4.2" class="anchored" data-anchor-id="duckdb"><span class="header-section-number">2.2.4.2</span> DuckDB</h4>
+<p>DuckDB es una base de datos analítica <em>embebida</em> que permite realizar consultas SQL directamente en archivos de datos locales, como CSV, Parquet y JSON. Es especialmente aconsejable para entornos de desarrollo y pruebas, evitándonos configurar un servidor de base de datos completo. DuckDB ofrece un rendimiento eficiente y escalable, y es compatible con múltiples lenguajes de programación, incluyendo Python, R y C++. Es ideal para escenarios donde se requiere un análisis rápido y flexible de los datos sin necesidad de una infraestructura compleja.</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
